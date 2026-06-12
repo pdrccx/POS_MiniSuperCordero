@@ -1,0 +1,333 @@
+/* ===== Mini Super Cordero — tema claro con morado ===== */
+:root {
+  --fondo: #f6f4fb;
+  --tarjeta: #ffffff;
+  --tarjeta-hover: #f1edfa;
+  --borde: #ddd6ee;
+  --texto: #2b2438;
+  --texto-suave: #7a7390;
+  --morado: #6d28d9;
+  --morado-hover: #7c3aed;
+  --morado-suave: #ede9fe;
+  --rojo: #c0392b;
+  --amarillo: #b07c10;
+  --radio: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+}
+
+/* ===== Encabezado ===== */
+header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 12px 22px;
+  background: var(--tarjeta);
+  border-bottom: 3px solid var(--morado);
+  box-shadow: 0 1px 6px rgba(60, 40, 120, 0.08);
+}
+
+.marca {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--morado);
+  white-space: nowrap;
+}
+
+nav { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+
+nav a, nav button {
+  display: inline-block;
+  padding: 9px 14px;
+  border-radius: var(--radio);
+  color: var(--texto);
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+nav a:hover, nav button:hover { background: var(--tarjeta-hover); }
+nav a.activo { border-color: var(--morado); color: var(--morado); font-weight: 600; }
+
+.turno {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.turno button {
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--borde);
+  background: transparent;
+  color: var(--texto-suave);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.turno button.activo {
+  background: var(--morado);
+  border-color: var(--morado);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== Contenido ===== */
+main { padding: 22px; max-width: 1100px; margin: 0 auto; }
+
+h1 { font-size: 1.5rem; margin: 0 0 18px; }
+h2 { font-size: 1.2rem; }
+
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 4px rgba(60, 40, 120, 0.06);
+}
+
+/* ===== Botones ===== */
+.boton {
+  display: inline-block;
+  padding: 14px 24px;
+  border: none;
+  border-radius: var(--radio);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: #fff;
+  background: #8a849c;
+}
+
+.boton:hover { filter: brightness(1.08); }
+.boton:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.boton-morado { background: var(--morado); }
+.boton-morado:hover { background: var(--morado-hover); filter: none; }
+.boton-gris { background: #8a849c; }
+.boton-rojo { background: var(--rojo); }
+.boton-grande { padding: 18px 32px; font-size: 1.25rem; }
+.boton-chico { padding: 8px 14px; font-size: 0.9rem; font-weight: 500; }
+
+/* ===== Campos ===== */
+input[type="text"], input[type="number"], input[type="date"], input[type="tel"], select, textarea {
+  background: #fff;
+  color: var(--texto);
+  border: 1.5px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 13px 15px;
+  font-size: 1.05rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--morado);
+  box-shadow: 0 0 0 3px var(--morado-suave);
+}
+
+label { display: block; margin: 12px 0 6px; color: var(--texto-suave); font-size: 0.95rem; }
+
+/* ===== Tablas ===== */
+table { width: 100%; border-collapse: collapse; }
+
+th {
+  text-align: left;
+  padding: 10px 12px;
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--borde);
+}
+
+td { padding: 12px; border-bottom: 1px solid #ece8f5; }
+
+tr.seleccionada td { background: var(--morado-suave); }
+tbody tr { cursor: default; }
+
+td input[type="number"], td input[type="text"] {
+  width: 90px;
+  padding: 8px 10px;
+  font-size: 1rem;
+  text-align: right;
+}
+
+.derecha { text-align: right; }
+.centrado { text-align: center; }
+.suave { color: var(--texto-suave); }
+.morado { color: var(--morado); }
+.rojo { color: var(--rojo); }
+
+/* ===== Buscador con sugerencias ===== */
+.buscador-caja { position: relative; }
+
+.sugerencias {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  margin-top: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 50;
+  display: none;
+  box-shadow: 0 6px 18px rgba(60, 40, 120, 0.15);
+}
+
+.sugerencias.visible { display: block; }
+
+.sugerencia {
+  padding: 12px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sugerencia:hover, .sugerencia.resaltada { background: var(--morado); color: #fff; }
+.sugerencia:hover .suave, .sugerencia.resaltada .suave { color: #e6dcfb; }
+
+/* ===== POS ===== */
+.pos-total {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: right;
+  color: var(--morado);
+}
+
+.pos-total .etiqueta { font-size: 1rem; color: var(--texto-suave); font-weight: 400; display: block; }
+
+.pos-acciones { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+
+/* ===== Modales ===== */
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 36, 56, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.modal-fondo.visible { display: flex; }
+
+.modal {
+  background: var(--tarjeta);
+  border-radius: 14px;
+  padding: 26px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--borde);
+  box-shadow: 0 10px 40px rgba(43, 36, 56, 0.25);
+}
+
+.modal h2 { margin-top: 0; }
+
+.modal-acciones { display: flex; gap: 12px; margin-top: 22px; justify-content: flex-end; flex-wrap: wrap; }
+
+/* Opciones de pago */
+.opciones-pago { display: flex; gap: 10px; margin: 16px 0; flex-wrap: wrap; }
+
+.opcion-pago {
+  flex: 1;
+  min-width: 130px;
+  padding: 16px 10px;
+  border: 2px solid var(--borde);
+  border-radius: var(--radio);
+  background: #fff;
+  color: var(--texto);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.opcion-pago.activa { border-color: var(--morado); background: var(--morado-suave); color: var(--morado); }
+
+.dato-grande { font-size: 2rem; font-weight: 700; }
+
+/* Caja de cliente elegido */
+.caja-cliente { margin-top: 12px; padding: 12px; background: var(--morado-suave); border-radius: 10px; }
+
+/* ===== Ticket ===== */
+.ticket { font-size: 1rem; }
+.ticket .linea { display: flex; justify-content: space-between; padding: 4px 0; }
+.ticket hr { border: none; border-top: 1px dashed var(--borde); margin: 12px 0; }
+.ticket .ticket-total { font-size: 1.5rem; font-weight: 700; color: var(--morado); }
+
+/* ===== Mensajes flotantes ===== */
+#avisos {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.aviso {
+  background: var(--morado);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(43, 36, 56, 0.35);
+}
+
+.aviso.error { background: var(--rojo); }
+
+/* ===== Filtros ===== */
+.filtros { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+.filtros input, .filtros select { width: auto; }
+
+.etiqueta-tipo {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tipo-contado { background: #e3f4ec; color: #1b7a52; }
+.tipo-fiado { background: #fbf0d9; color: var(--amarillo); }
+.tipo-mixto { background: var(--morado-suave); color: var(--morado); }
+.tipo-abono { background: #e3f4ec; color: #1b7a52; }
+.tipo-cancelada { background: #fbe3e0; color: var(--rojo); }
+
+.detalle-venta { background: #faf8fe; }
+
+@media (max-width: 700px) {
+  body { font-size: 15px; }
+  .pos-total { font-size: 2.2rem; }
+  main { padding: 12px; }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Super Cordero — Punto de Venta</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <main>
+    <div class="tarjeta">
+      <label for="buscador" style="margin-top:0;">Busca un producto por código o nombre y presiona Enter</label>
+      <div class="buscador-caja">
+        <input type="text" id="buscador" placeholder="Ejemplo: BOL, PAN1, chicles..." autocomplete="off" autofocus>
+        <div class="sugerencias" id="sugerencias"></div>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th class="derecha">Precio unit.</th>
+            <th class="derecha">Importe</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="carrito">
+          <tr id="carrito-vacio"><td colspan="6" class="suave centrado">El carrito está vacío. Busca un producto arriba.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="pos-total" id="total">
+        <span class="etiqueta">Total</span>$0.00
+      </div>
+
+      <div class="pos-acciones">
+        <button class="boton boton-morado boton-grande" id="btn-cobrar">Cobrar</button>
+        <button class="boton boton-gris" id="btn-limpiar">Limpiar carrito</button>
+        <button class="boton boton-gris" id="btn-quitar-sel">Quitar producto seleccionado</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Ventana de cobro -->
+  <div class="modal-fondo" id="modal-cobro">
+    <div class="modal">
+      <h2>Cobrar venta</h2>
+      <div class="dato-grande morado" id="cobro-total">$0.00</div>
+
+      <div class="opciones-pago">
+        <button class="opcion-pago" data-pago="contado">Al contado</button>
+        <button class="opcion-pago" data-pago="fiado">Fiado</button>
+        <button class="opcion-pago" data-pago="mixto">Mitad y mitad</button>
+      </div>
+
+      <div id="pago-contado" hidden>
+        <label for="pago-recibido">¿Cuánto pagó?</label>
+        <input type="number" id="pago-recibido" min="0" step="0.5" placeholder="0.00">
+        <button class="boton boton-chico boton-gris" id="btn-pago-exacto" style="margin-top:8px;">Pagó exacto</button>
+        <p style="font-size:1.3rem;">Cambio: <strong id="cambio" class="morado">$0.00</strong></p>
+      </div>
+
+      <div id="pago-mixto-monto" hidden>
+        <label for="pago-ahorita">¿Cuánto pagó ahorita?</label>
+        <input type="number" id="pago-ahorita" min="0" step="0.5" placeholder="0.00">
+        <p style="font-size:1.2rem;">Queda fiado: <strong id="resto-fiado" class="rojo">$0.00</strong></p>
+      </div>
+
+      <div id="pago-cliente" hidden>
+        <label for="buscar-cliente">¿A quién se le fía?</label>
+        <div class="buscador-caja">
+          <input type="text" id="buscar-cliente" placeholder="Escribe el nombre del cliente..." autocomplete="off">
+          <div class="sugerencias" id="sugerencias-cliente"></div>
+        </div>
+        <div id="cliente-elegido" class="caja-cliente" hidden>
+          <strong id="cliente-nombre"></strong>
+          <div class="suave">Debe actualmente: <span id="cliente-deuda" class="rojo"></span></div>
+        </div>
+        <button class="boton boton-chico boton-gris" id="btn-cliente-nuevo" style="margin-top:10px;">Registrar cliente nuevo</button>
+        <div id="form-cliente-nuevo" hidden style="margin-top:10px;">
+          <label for="nuevo-nombre">Nombre del cliente</label>
+          <input type="text" id="nuevo-nombre" placeholder="Nombre">
+          <label for="nuevo-telefono">Teléfono (opcional)</label>
+          <input type="tel" id="nuevo-telefono" placeholder="Teléfono">
+        </div>
+      </div>
+
+      <div class="modal-acciones">
+        <button class="boton boton-gris" id="btn-cancelar-cobro">Cancelar</button>
+        <button class="boton boton-morado boton-grande" id="btn-confirmar-venta" disabled>Confirmar venta</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticket simbólico -->
+  <div class="modal-fondo" id="modal-ticket">
+    <div class="modal">
+      <div class="ticket" id="ticket-contenido"></div>
+      <div class="modal-acciones">
+        <button class="boton boton-morado boton-grande" id="btn-cerrar-ticket">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/pos.js"></script>
+</body>
+</html>

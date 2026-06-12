@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Super Cordero — Productos</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Productos</h1>
+
+    <div class="tarjeta">
+      <div class="filtros">
+        <input type="text" id="buscar-producto" placeholder="Buscar por código o nombre..." style="flex:1; min-width:200px;">
+        <button class="boton boton-morado" id="btn-agregar">Agregar producto</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th class="derecha">Precio</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="lista-productos"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Formulario de producto -->
+  <div class="modal-fondo" id="modal-producto">
+    <div class="modal">
+      <h2 id="titulo-form">Agregar producto</h2>
+      <label for="campo-codigo">Código corto</label>
+      <input type="text" id="campo-codigo" placeholder="Ejemplo: BOL, PAN1" maxlength="10">
+      <label for="campo-nombre">Nombre</label>
+      <input type="text" id="campo-nombre" placeholder="Nombre del producto">
+      <label for="campo-tipo">Tipo</label>
+      <select id="campo-tipo">
+        <option value="normal">Normal (precio fijo)</option>
+        <option value="pesable">Pesable (la báscula da el importe)</option>
+        <option value="suelto">Suelto (pan, chicles, sin código de barras)</option>
+      </select>
+      <label for="campo-precio">Precio de venta <span class="suave">(opcional para pesables)</span></label>
+      <input type="number" id="campo-precio" min="0" step="0.5" placeholder="0.00">
+      <div class="modal-acciones">
+        <button class="boton boton-gris" id="btn-cancelar-producto">Cancelar</button>
+        <button class="boton boton-morado" id="btn-guardar-producto">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/productos.js"></script>
+</body>
+</html>

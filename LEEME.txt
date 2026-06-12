@@ -1,0 +1,24 @@
+MINI SUPER CORDERO — Cómo pasarlo a la computadora de la tienda
+================================================================
+
+1. Copia TODA la carpeta "mini-super-cordero" a una USB,
+   PERO BORRA (o no copies) la carpeta "node_modules" y la carpeta "respaldos_tmp".
+   Esas se crean solas en la otra computadora.
+
+   Tampoco copies "database\tienda.db" si quieres empezar con la tienda en ceros
+   (si la copias, se lleva las ventas y productos de prueba).
+
+2. En la computadora de la tienda, pega la carpeta donde quieras
+   (por ejemplo en el Escritorio o en C:\).
+
+3. Dale doble clic a "arrancar.bat".
+   - La primera vez va a instalar todo solo (necesita internet).
+     Puede tardar varios minutos. Si pide permiso, dale "Sí".
+   - Las siguientes veces abre directo en unos segundos.
+
+4. El sistema se abre solo en el navegador en http://localhost:3000
+
+5. Para apagar el sistema: cierra la ventana negra.
+
+TIP: Crea un acceso directo de "arrancar.bat" en el Escritorio
+     con el nombre "Tienda" para que sea más fácil de encontrar.

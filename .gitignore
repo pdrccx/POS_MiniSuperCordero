@@ -1,0 +1,6 @@
+node_modules/
+database/tienda.db
+database/tienda.db-journal
+database/tienda.db-wal
+database/tienda.db-shm
+respaldos_tmp/

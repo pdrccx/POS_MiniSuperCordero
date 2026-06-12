@@ -1,0 +1,13 @@
+{
+  "name": "mini-super-cordero",
+  "version": "1.0.0",
+  "description": "Punto de venta para Mini Super Cordero",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.10.0",
+    "express": "^5.2.1"
+  }
+}

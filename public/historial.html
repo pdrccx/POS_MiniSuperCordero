@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Super Cordero — Historial</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Historial</h1>
+
+    <div class="tarjeta">
+      <div class="filtros">
+        <button class="boton boton-chico boton-gris" data-rango="hoy">Hoy</button>
+        <button class="boton boton-chico boton-gris" data-rango="semana">Esta semana</button>
+        <button class="boton boton-chico boton-gris" data-rango="mes">Este mes</button>
+        <span class="suave">o de</span>
+        <input type="date" id="fecha-desde">
+        <span class="suave">a</span>
+        <input type="date" id="fecha-hasta">
+        <select id="filtro-tipo">
+          <option value="todos">Todos los movimientos</option>
+          <option value="contado">Ventas al contado</option>
+          <option value="fiado">Ventas fiadas</option>
+          <option value="mixto">Mitad y mitad</option>
+          <option value="abono">Abonos</option>
+          <option value="cancelada">Ventas canceladas</option>
+        </select>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha y hora</th>
+            <th>Tipo</th>
+            <th>Cliente</th>
+            <th class="derecha">Monto</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="lista-historial"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Cancelar venta -->
+  <div class="modal-fondo" id="modal-cancelar">
+    <div class="modal">
+      <h2>Cancelar venta</h2>
+      <p>La venta quedará marcada como cancelada en el historial. Si tenía fiado, se le quitará esa deuda al cliente.</p>
+      <label for="motivo-cancelacion">¿Por qué se cancela?</label>
+      <textarea id="motivo-cancelacion" rows="3" placeholder="Ejemplo: se cobró por error"></textarea>
+      <div class="modal-acciones">
+        <button class="boton boton-gris" id="btn-no-cancelar">Volver</button>
+        <button class="boton boton-rojo" id="btn-si-cancelar">Cancelar la venta</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/historial.js"></script>
+</body>
+</html>
