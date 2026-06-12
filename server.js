@@ -15,6 +15,7 @@ app.use('/api/productos', require('./routes/productos'));
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/ventas', require('./routes/ventas'));
 app.use('/api/historial', require('./routes/historial'));
+app.use('/api/graficas', require('./routes/graficas'));
 
 // Respaldo: descarga una copia de la base de datos
 app.get('/api/respaldo', async (req, res) => {

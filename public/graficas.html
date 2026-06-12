@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Super Cordero — Gráficas</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <style>
+    .graficas-rejilla {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 500px) {
+      .graficas-rejilla { grid-template-columns: 1fr; }
+    }
+    .barra-fila {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 9px 0;
+    }
+    .barra-nombre {
+      width: 130px;
+      min-width: 130px;
+      text-align: right;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .barra-pista { flex: 1; }
+    .barra {
+      height: 28px;
+      background: var(--morado);
+      border-radius: 6px;
+      min-width: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .barra.roja { background: var(--rojo); }
+    .barra-valor {
+      margin-left: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    .sin-datos { color: var(--texto-suave); padding: 16px 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Gráficas de deudores</h1>
+
+    <div class="filtros">
+      <label style="margin:0;">Mes:</label>
+      <input type="month" id="mes-graficas">
+      <button class="boton boton-chico boton-gris" id="btn-este-mes">Este mes</button>
+      <span class="suave">(el mes solo afecta "quién pagó más" y "quién pidió más fiado")</span>
+    </div>
+
+    <div class="graficas-rejilla">
+      <div class="tarjeta">
+        <h2 style="margin-top:0;">¿Quién debe más ahorita?</h2>
+        <div id="g-deben"></div>
+      </div>
+      <div class="tarjeta">
+        <h2 style="margin-top:0;">¿Quién pagó más este mes?</h2>
+        <div id="g-pagaron"></div>
+      </div>
+      <div class="tarjeta">
+        <h2 style="margin-top:0;">¿Quién pidió más fiado este mes?</h2>
+        <div id="g-fiaron"></div>
+      </div>
+      <div class="tarjeta">
+        <h2 style="margin-top:0;">¿Quién lleva más tiempo sin pagar?</h2>
+        <div id="g-sin-pagar"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/graficas.js"></script>
+</body>
+</html>

@@ -69,6 +69,7 @@ function pintarEncabezado(paginaActiva) {
       <a href="/deudores.html" data-pag="deudores">Deudores</a>
       <a href="/historial.html" data-pag="historial">Historial</a>
       <a href="/resumen.html" data-pag="resumen">Resumen del día</a>
+      <a href="/graficas.html" data-pag="graficas">Gráficas</a>
       <a href="/productos.html" data-pag="productos">Productos</a>
       <button id="btn-respaldo">Guardar copia</button>
     </nav>
