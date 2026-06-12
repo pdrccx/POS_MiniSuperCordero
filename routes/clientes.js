@@ -26,9 +26,13 @@ router.get('/:id', (req, res) => {
   const cliente = db.prepare('SELECT * FROM clientes WHERE id = ?').get(req.params.id);
   if (!cliente) return res.status(404).json({ error: 'Cliente no encontrado' });
 
-  const movimientos = db
-    .prepare('SELECT * FROM movimientos_deuda WHERE cliente_id = ? ORDER BY fecha DESC, id DESC')
-    .all(req.params.id);
+  const movimientos = db.prepare(`
+    SELECT m.*, v.tipo_pago AS venta_tipo, v.total AS venta_total
+    FROM movimientos_deuda m
+    LEFT JOIN ventas v ON v.id = m.venta_id
+    WHERE m.cliente_id = ?
+    ORDER BY m.fecha DESC, m.id DESC
+  `).all(req.params.id);
 
   res.json({ ...cliente, movimientos });
 });

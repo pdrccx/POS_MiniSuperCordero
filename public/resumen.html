@@ -5,16 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini Super Cordero — Resumen del día</title>
   <link rel="stylesheet" href="/css/estilos.css">
+  <style>
+    .resumen-rejilla {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .dato-resumen {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      padding: 18px;
+      box-shadow: 0 1px 4px rgba(60, 40, 120, 0.06);
+    }
+    .dato-resumen .numero { font-size: 2rem; font-weight: 800; }
+    .dato-resumen .nombre { color: var(--texto-suave); font-size: 0.95rem; margin-top: 4px; }
+  </style>
 </head>
 <body>
   <main>
     <h1>Resumen del día</h1>
-    <div class="tarjeta centrado" style="padding:50px 20px;">
-      <p style="font-size:1.2rem;">Este apartado llega en la <strong class="morado">Fase 2</strong>.</p>
-      <p class="suave">Aquí verás cuánto se vendió, cuánto entró en efectivo y cuánto se fió cada día.</p>
+
+    <div class="filtros">
+      <label style="margin:0;">Día:</label>
+      <input type="date" id="fecha-resumen">
+      <button class="boton boton-chico boton-gris" id="btn-hoy">Hoy</button>
+    </div>
+
+    <div class="resumen-rejilla" style="margin-bottom:18px;">
+      <div class="dato-resumen">
+        <div class="numero morado" id="r-vendido">$0.00</div>
+        <div class="nombre">Total vendido (aunque no se haya cobrado)</div>
+      </div>
+      <div class="dato-resumen">
+        <div class="numero morado" id="r-cobrado">$0.00</div>
+        <div class="nombre">Total cobrado (dinero que sí entró)</div>
+      </div>
+      <div class="dato-resumen">
+        <div class="numero rojo" id="r-fiado">$0.00</div>
+        <div class="nombre">Fiado nuevo del día</div>
+      </div>
+      <div class="dato-resumen">
+        <div class="numero morado" id="r-abonos">$0.00</div>
+        <div class="nombre">Abonos recibidos</div>
+      </div>
+    </div>
+
+    <div class="resumen-rejilla" style="margin-bottom:18px;">
+      <div class="dato-resumen">
+        <div class="numero" id="r-num-ventas">0</div>
+        <div class="nombre">Ventas del día</div>
+      </div>
+      <div class="dato-resumen">
+        <div class="numero" id="r-contado">0</div>
+        <div class="nombre">Al contado</div>
+      </div>
+      <div class="dato-resumen">
+        <div class="numero" id="r-fiadas">0</div>
+        <div class="nombre">Fiadas</div>
+      </div>
+      <div class="dato-resumen">
+        <div class="numero" id="r-mixtas">0</div>
+        <div class="nombre">Mitad y mitad</div>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2 style="margin-top:0;">Clientes que pidieron fiado</h2>
+      <p id="r-clientes-fiado" class="suave">Nadie todavía.</p>
+      <h2>Clientes que abonaron</h2>
+      <p id="r-clientes-abonaron" class="suave">Nadie todavía.</p>
     </div>
   </main>
+
   <script src="/js/utils.js"></script>
-  <script>pintarEncabezado('resumen');</script>
+  <script src="/js/resumen.js"></script>
 </body>
 </html>
