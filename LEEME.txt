@@ -1,24 +1,48 @@
-MINI SUPER CORDERO — Cómo pasarlo a la computadora de la tienda
-================================================================
+MINI SUPER CORDERO — Cómo instalarlo en la computadora de la tienda
+====================================================================
 
-1. Copia TODA la carpeta "mini-super-cordero" a una USB,
-   PERO BORRA (o no copies) la carpeta "node_modules" y la carpeta "respaldos_tmp".
-   Esas se crean solas en la otra computadora.
+INSTALACIÓN (solo la primera vez)
+---------------------------------
 
-   Tampoco copies "database\tienda.db" si quieres empezar con la tienda en ceros
-   (si la copias, se lleva las ventas y productos de prueba).
+1. Instala Git desde https://git-scm.com/download/win
+   (Solo dale "Siguiente" a todo.)
 
-2. En la computadora de la tienda, pega la carpeta donde quieras
-   (por ejemplo en el Escritorio o en C:\).
+2. Abre la carpeta donde quieras tener el sistema (por ejemplo el Escritorio).
+   Click derecho en un espacio vacío → "Git Bash Here" o "Abrir terminal".
+   Escribe:
 
-3. Dale doble clic a "arrancar.bat".
-   - La primera vez va a instalar todo solo (necesita internet).
-     Puede tardar varios minutos. Si pide permiso, dale "Sí".
-   - Las siguientes veces abre directo en unos segundos.
+       git clone https://github.com/pdrccx/POS_MiniSuperCordero.git
+
+3. Entra a la carpeta "POS_MiniSuperCordero" que se creó.
+   Doble clic a "arrancar.bat".
+   La primera vez instala Node.js y dependencias solo (tarda varios minutos,
+   necesita internet). Si pide permiso, dale "Sí".
 
 4. El sistema se abre solo en el navegador en http://localhost:3000
 
-5. Para apagar el sistema: cierra la ventana negra.
+
+USO DEL DÍA A DÍA
+-----------------
+
+* Para abrir el sistema: doble clic a "arrancar.bat".
+* Para apagarlo: cierra la ventana negra.
+
+
+CÓMO ACTUALIZAR A UNA VERSIÓN NUEVA
+-----------------------------------
+
+Cuando suba mejoras al sistema (Pedro), en la compu de la tienda:
+
+1. Cierra el sistema (cierra la ventana negra).
+2. Doble clic a "actualizar.bat" — descarga la versión nueva.
+3. Doble clic a "arrancar.bat" otra vez.
+
+Las ventas, los clientes y las deudas NUNCA se pierden al actualizar.
+El archivo "database\tienda.db" es tuyo y se queda intacto.
+
 
 TIP: Crea un acceso directo de "arrancar.bat" en el Escritorio
      con el nombre "Tienda" para que sea más fácil de encontrar.
+
+TIP 2: De vez en cuando, dale al botón "Guardar copia" arriba a la derecha,
+       y guarda el archivo descargado en una USB. Es tu respaldo.
